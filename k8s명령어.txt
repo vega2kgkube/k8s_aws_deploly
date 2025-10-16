@@ -49,6 +49,8 @@ kubectl apply -f ./objects/db-mysql-svc.yml
 # 객체 확인
 kubectl get all
 
+# Orders RESTAPI Deployment 생성하기
+kubectl apply -f ./objects/app-boot-deployment.yml
 
 NodePort 서비스 요청하기
 SpringBoot
