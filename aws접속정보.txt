@@ -149,3 +149,30 @@ services:
       retries: 3
       start_period: 40s
 EOF      
+
+
+http://13.125.233.176:7860/
+
+docker logs fc0de8fb449c --tail 100 -f
+
+region 영문명
+ap-northeast-2
+
+aws ssm get-parameter \
+    --name "OPENAI_API_KEY" \
+    --with-decryption \
+    --region ap-northeast-2
+
+aws ssm get-parameter \
+    --name "OPENAI_API_KEY" \
+    --with-decryption \
+    --query 'Parameter.Value' \
+    --output text \
+    --region ap-northeast-2    
+
+OPENAI_API_KEY=$(aws ssm get-parameter --name "OPENAI_API_KEY" --with-decryption --query 'Parameter.Value' --output text --region ap-northeast-2) docker-compose up -d    
+
+
+cat > rag-app.sh << EOF
+OPENAI_API_KEY=$(aws ssm get-parameter --name "OPENAI_API_KEY" --with-decryption --query 'Parameter.Value' --output text --region ap-northeast-2) docker-compose up -d
+EOF
