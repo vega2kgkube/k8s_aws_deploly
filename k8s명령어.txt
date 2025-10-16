@@ -63,7 +63,7 @@ kubectl get svc
 kubectl get nodes -o wide
 
 # Orders API url
-http://35.188.207.30:30090/
+http://34.71.84.19:30090/orders
 
 NodePort 서비스 요청하기
 SpringBoot
