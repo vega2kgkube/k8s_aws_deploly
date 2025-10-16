@@ -59,6 +59,12 @@ kubectl apply -f ./objects/app-boot-svc-nodeport.yml
 # service 확인
 kubectl get svc
 
+# Service 접근을 위한 EXTERNAL-IP 확인하기
+kubectl get nodes -o wide
+
+# Orders API url
+http://35.188.207.30:30090/
+
 NodePort 서비스 요청하기
 SpringBoot
 http://34.70.247.76:30090/api/bookmarks
