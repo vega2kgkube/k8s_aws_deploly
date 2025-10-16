@@ -90,12 +90,13 @@ kubectl apply -f ./objects/db-mysql-svc-secret.yml
 # 생성된 ConfigMap과 Secrets 객체를 사용하는 REST API 디플로이먼트 객체 생성하기
 kubectl apply -f ./objects/app-boot-deployment-secret.yml
 
-
-
-
-
-
-
+# Nginx 파드와 PVC 생성하기
+kubectl apply -f ./objects/pvc-demo.yaml
+# PVC 확인
+kubectl get pvc
+# Pod 확인
+kubectl get po
+# Pod 삭제
 
 
 
