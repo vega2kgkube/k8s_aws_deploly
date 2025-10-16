@@ -52,6 +52,10 @@ kubectl get all
 # Orders RESTAPI Deployment 생성하기
 kubectl apply -f ./objects/app-boot-deployment.yml
 
+# Orders RESTAPI Service 생성하기
+kubectl apply -f ./objects/app-boot-svc-nodeport.yml
+
+
 NodePort 서비스 요청하기
 SpringBoot
 http://34.70.247.76:30090/api/bookmarks
