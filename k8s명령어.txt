@@ -96,6 +96,9 @@ kubectl apply -f ./objects/pvc-demo.yaml
 kubectl get pvc
 # Pod 확인
 kubectl get po
+
+# Pod 내부로 들어가기
+kubectl exec -it pvc-demo-pod -- sh
 # Pod 삭제
 
 
