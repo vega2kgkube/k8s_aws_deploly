@@ -31,7 +31,9 @@ gcloud version
 
 gke-gcloud-auth-plugin --version
 
-gcloud container clusters get-credentials boot-nextjs --zone us-central1-c --project vast-nectar-463902-h8
+gcloud container clusters get-credentials boot-react-cluster --zone us-central1-a --project shining-axon-474805-r9
+
+kubectl get node
 
 kubectl config view
 
