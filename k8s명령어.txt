@@ -77,8 +77,12 @@ http://104.155.143.82:8080/orders
 # ConfigMap 오브젝트 생성하기
 kubectl apply -f ./objects/mysql-configMap.yaml
 
+kubectl get cm
+
 # Secrets 오브젝트 생성하기
 kubectl apply -f ./objects/mysql-secrets.yaml
+
+kubectl get secret
 
 # 생성된 ConfigMap과 Secrets 객체를 사용하는 DB 디플로이먼트 객체 생성하기
 kubectl apply -f ./objects/db-mysql-svc-secret.yml
