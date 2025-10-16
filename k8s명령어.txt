@@ -72,7 +72,33 @@ kubectl apply -f ./objects/app-boot-svc-loadbal.yml
 kubectl get svc
 
 # Orders API url
-http://서비스의 IP:8080/orders
+http://104.155.143.82:8080/orders
+
+# ConfigMap 오브젝트 생성하기
+kubectl apply -f ./objects/mysql-configMap.yaml
+
+# Secrets 오브젝트 생성하기
+kubectl apply -f ./objects/mysql-secrets.yaml
+
+# 생성된 ConfigMap과 Secrets 객체를 사용하는 DB 디플로이먼트 객체 생성하기
+kubectl apply -f ./objects/db-mysql-svc-secret.yml
+
+# 생성된 ConfigMap과 Secrets 객체를 사용하는 REST API 디플로이먼트 객체 생성하기
+kubectl apply -f ./objects/app-boot-deployment-secret.yml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -82,7 +108,7 @@ http://34.70.247.76:30090/api/bookmarks
 http://34.42.73.32:30090/api/bookmarks
 http://34.27.221.173:30090/api/bookmarks
 
-LoadBalancer 서비스 요청하기
+LoadBalancer 서비스 Orders API 요청하기
 http://34.28.247.244:8080/api/bookmarks
 
 NodePort
