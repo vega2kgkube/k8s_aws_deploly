@@ -53,7 +53,7 @@ kubectl get all
 # Orders RESTAPI Deployment 생성하기
 kubectl apply -f ./objects/app-boot-deployment.yml
 
-# Orders RESTAPI Service 생성하기
+# Orders RESTAPI Service(NodePort타입) 생성하기
 kubectl apply -f ./objects/app-boot-svc-nodeport.yml
 
 # service 확인
@@ -64,6 +64,17 @@ kubectl get nodes -o wide
 
 # Orders API url
 http://34.71.84.19:30090/orders
+
+# Orders RESTAPI Service(LoadBalancer 타입) 생성하기
+kubectl apply -f ./objects/app-boot-svc-loadbal.yml
+
+# service 확인 하면 LoadBalancer 타입인 서비스의 IP가 보여짐
+kubectl get svc
+
+# Orders API url
+http://서비스의 IP:8080/orders
+
+
 
 NodePort 서비스 요청하기
 SpringBoot
