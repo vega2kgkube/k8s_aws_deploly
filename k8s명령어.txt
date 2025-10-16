@@ -44,6 +44,12 @@ kubectl describe nodes | grep -A 10 "Allocated resources"
 kubectl top nodes
 kubectl top pods
 
+# MariaDB Service 생성하기
+kubectl apply -f ./objects/db-mysql-svc.yml
+# 객체 확인
+kubectl get all
+
+
 NodePort 서비스 요청하기
 SpringBoot
 http://34.70.247.76:30090/api/bookmarks
