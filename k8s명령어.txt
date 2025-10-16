@@ -46,6 +46,7 @@ kubectl top pods
 
 # MariaDB Service 생성하기
 kubectl apply -f ./objects/db-mysql-svc.yml
+
 # 객체 확인
 kubectl get all
 
@@ -55,6 +56,8 @@ kubectl apply -f ./objects/app-boot-deployment.yml
 # Orders RESTAPI Service 생성하기
 kubectl apply -f ./objects/app-boot-svc-nodeport.yml
 
+# service 확인
+kubectl get svc
 
 NodePort 서비스 요청하기
 SpringBoot
