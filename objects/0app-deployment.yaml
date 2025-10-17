@@ -19,7 +19,7 @@ spec:
             - containerPort: 8080
           env:   # Setting Environmental Variables
             - name: DB_HOST   # Setting Database host address from configMap
-              value: mysql
+              value: mysql-svc
 #              valueFrom :
 #                configMapKeyRef :
 #                  name : db-config
@@ -52,12 +52,12 @@ apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
 metadata: # Metadata of the resource kind we are creating
   name: springboot-crud-svc
-spec:
-  selector:
-    app: springboot-k8s-mysql
+spec:  
   ports:
     - protocol: "TCP"
       port: 8080 # The port that the service is running on in the cluster
       targetPort: 8080 # The port exposed by the service
+  selector:
+    app: springboot-k8s-mysql
   type: NodePort # type of the service.
 

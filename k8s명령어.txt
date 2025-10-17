@@ -111,7 +111,8 @@ kubectl apply -f ./objects/0db-deployment.yaml
 # DB Pod 내부로 들어가기
 kubectl exec -it pod/mysql-deploy-7899f46554-4zs2w -- bash
 
-
+# PVC DB를 호출하는 REST API Deployment, Service 생성하기
+kubectl apply -f ./objects/0app-deployment.yaml
 
 
 
