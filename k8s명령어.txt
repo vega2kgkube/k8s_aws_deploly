@@ -118,7 +118,7 @@ http://34.71.84.19:30996/orders
 
 ########### 3-tier Bookmark DB(Postgres), BackEnd, FrontEnd
 # ConfigMap, Secret 등록하기
-kubectl apply -f ./boot_read/1-config.yaml
+kubectl apply -f ./boot_react/1-config.yaml
 
 NodePort 서비스 요청하기
 SpringBoot
