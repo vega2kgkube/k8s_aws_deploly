@@ -123,6 +123,7 @@ kubectl apply -f ./boot_react/1-config.yaml
 # 2. Postgres DB Service, Deployment 생성하기
 kubectl apply -f ./boot_react/2-postgres-db-volume.yaml
 
+kubectl exec -it pod/postgres-deployment-5786bcb8f8-785pz -- bash
 
 
 NodePort 서비스 요청하기
