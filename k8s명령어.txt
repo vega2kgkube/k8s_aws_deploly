@@ -181,3 +181,12 @@ kubectl create secret generic pdf-rag-secrets --from-literal=OPENAI_API_KEY="<YO
 
 # Deployment 재시작
 kubectl rollout restart deployment pdf-rag-deployment
+
+# 클러스트 잠시 멈추기 (축소)
+# gcloud CLI를 사용하여 노드 풀의 크기를 0으로 설정합니다.
+gcloud container clusters update boot-react-cluster \
+    --enable-autoscaling \
+    --min-nodes=0 \
+    --max-nodes=0 \
+    --node-pool=default-pool \
+    --zone=us-central1-a
