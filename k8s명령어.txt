@@ -114,8 +114,11 @@ kubectl exec -it pod/mysql-deploy-7899f46554-4zs2w -- bash
 # PVC DB를 호출하는 REST API Deployment, Service 생성하기
 kubectl apply -f ./objects/0app-deployment.yaml
 
+http://34.71.84.19:30996/orders
 
-
+########### 3-tier Bookmark DB(Postgres), BackEnd, FrontEnd
+# ConfigMap, Secret 등록하기
+kubectl apply -f ./boot_read/1-config.yaml
 
 NodePort 서비스 요청하기
 SpringBoot
