@@ -117,8 +117,13 @@ kubectl apply -f ./objects/0app-deployment.yaml
 http://34.71.84.19:30996/orders
 
 ########### 3-tier Bookmark DB(Postgres), BackEnd, FrontEnd
-# ConfigMap, Secret 등록하기
+# 1. ConfigMap, Secret 생성하기
 kubectl apply -f ./boot_react/1-config.yaml
+
+# 2. Postgres DB Service, Deployment 생성하기
+kubectl apply -f ./boot_react/2-postgres-db-volume.yaml
+
+
 
 NodePort 서비스 요청하기
 SpringBoot
