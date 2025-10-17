@@ -54,7 +54,6 @@ spec:
 #                configMapKeyRef :
 #                  name : db-config
 #                  key :  dbName
-
           ports:
             - containerPort: 3306
               protocol: TCP
