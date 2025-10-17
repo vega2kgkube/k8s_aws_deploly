@@ -152,13 +152,10 @@ LoadBalancer
 Nextjs
 http://34.58.32.215:3000
 
-
-kubectl create secret generic pdf-rag-secrets --from-literal=OPENAI_API_KEY="$(gcloud secrets versions access latest --secret=OPENAI_API_KEY)"
-
-  
-kubectl apply -f ./k8s_python/1-config.yml
-kubectl apply -f ./k8s_python/2-deployment.yml
-kubectl apply -f ./k8s_python/3-service.yml
+gcloud secrets versions access latest --secret=OPENAI_API_KEY
+kubectl apply -f ./python/1-config.yml
+kubectl apply -f ./python/2-deployment.yml
+kubectl apply -f ./python/3-service.yml
 
 kubectl get node
 
@@ -170,4 +167,17 @@ kubectl get po,deploy,service
 
 kubectl logs pod/pdf-rag-deployment-b79c945bb-6dxgx
 
-http://34.74.76.123:7860
+# 80 포트 이므로 생략 가능함
+http://34.74.76.123
+
+######### 아래와 같은 오류가 발생한다면
+처리 중 오류가 발생했습니다: Error code: 401 - {'error': {'message': 'Incorrect API key provided: $(gcloud****************************************************KEY). You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+
+# 기존 Secret 삭제
+kubectl delete secret pdf-rag-secrets
+
+# 아래 명령어에서 <YOUR_ACTUAL_API_KEY> 부분에 직접 OPENAI 키값을 붙여넣기
+kubectl create secret generic pdf-rag-secrets --from-literal=OPENAI_API_KEY="<YOUR_ACTUAL_API_KEY>" --dry-run=client -o yaml | kubectl apply -f -
+
+# Deployment 재시작
+kubectl rollout restart deployment pdf-rag-deployment
